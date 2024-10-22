@@ -1,0 +1,27 @@
+.box{
+    border: 2px solid skyblue;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    height: 500px;
+
+}
+
+.card-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 15px;
+    align-items: center;
+    text-align: center;
+}
+
+.visited{
+    background: bisque;
+    color: black;
+}
+
+.visited-flags{
+    width: 50px;
+    height: 50px;
+    display: flex;
+}
