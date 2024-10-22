@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './country.css';
 
-export default function Country({ country, code, addVisitedCountry,visitedFlag }) {
+export default function Country({ country, code, addVisitedCountry, visitedFlag }) {
     const [isVisited, setVisited] = useState(false);
 
     const name = country?.name?.common || "Unknown";
@@ -15,17 +15,17 @@ export default function Country({ country, code, addVisitedCountry,visitedFlag }
     const handleVisited = () => {
         if (!isVisited) { // Only add if it's not already visited
             addVisitedCountry(
-                <Country 
+                <Country
                     key={country.ccn3} // Use a unique key
-                    country={country} 
-                    code={code} 
+                    country={country}
+                    code={code}
                 />
             );
         }
         setVisited(!isVisited); // Toggle visited state
     };
 
-    const handleFlagClicked = (flagUrl) =>{
+    const handleFlagClicked = (flagUrl) => {
         visitedFlag(flagUrl);
     }
 
@@ -42,51 +42,32 @@ export default function Country({ country, code, addVisitedCountry,visitedFlag }
 
             {isVisited ? "Visited the country" : "I will visit it soon"}
             <br />
-            <button onClick={()=>handleFlagClicked(flagUrl)}>Add Flag</button>
+            <button onClick={() => handleFlagClicked(flagUrl)}>Add Flag</button>
         </div>
     );
 }
 
-{/* <ol>
+<ol>
     <li>Create a Button and Put onClick()</li>
     <li>Wrap it with another function because we have to pass img url</li>
     <li>write the handleFlagClicked function in the component</li>
     <li>where you will pass the flag url , you have to create a function in parent component</li>
-    <li>Created a visitedFlag Function in parent component</li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-</ol> */}
-
-
-
-<ol>
-    <li> <button onClick={()=>handleFlagClicked(flagUrl)}>Add Flag</button></li>
-    <li> const handleFlagClicked = (flagUrl) =>{
-        visitedFlag(flagUrl);
-    }</li>
-    <li> const visitedFlag = (flagUrl) => {
+    <li>Created a visitedFlag Function in parent component </li>
+    <li>But child doesnot know what is vistedFlag()</li>
+    <li>so we have to pass it as props within the child </li>
+    <li>child will recieve the VistedFlag() and can set the value</li>
+    <li>passed the url via visitedFlag from child</li>
+    <li>Recieved it in parents visitedFlag</li>
+    <li>Now we have to declare a state to notify react</li>
+    <li>  const [flags, setFlags] = useState([]);</li>
+    <li>Here flag is array , so putting flagUrls in flags</li>
+    <li><div>
         const newFlags = [...flags, flagUrl];
         setFlags(newFlags);
-    }</li>
-    <li>  <div className="card-container">
-                {
-                    countries.map((country) => (
-                        <Country
-                            key={country.ccn3}
-                            visitedFlag={visitedFlag}
-                            addVisitedCountry={addVisitedCountry}
-                            code={country.ccn3}
-                            country={country}
-                        />
-                    ))
-                }
-            </div></li>
-    <li>const [flags, setFlags] = useState([]);</li>
-    <li> <div>
+    </div></li>
+    <li>
+        <div>
+        <div>
                 <h2>visited Flags</h2>
                 <div className="visited-flags">
                     {
@@ -95,5 +76,10 @@ export default function Country({ country, code, addVisitedCountry,visitedFlag }
                         })
                     }
                 </div>
-            </div></li>
+            </div>
+        </div>
+    </li>
 </ol>
+
+
+

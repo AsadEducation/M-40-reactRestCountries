@@ -5,29 +5,26 @@
 <h1>How Flag are going to be added </h1>
 
 <ol>
-    <li> <button onClick={()=>handleFlagClicked(flagUrl)}>Add Flag</button></li>
-    <li> const handleFlagClicked = (flagUrl) =>{
-        visitedFlag(flagUrl);
-    }</li>
-    <li> const visitedFlag = (flagUrl) => {
+    <li>Create a Button and Put onClick()</li>
+    <li>Wrap it with another function because we have to pass img url</li>
+    <li>write the handleFlagClicked function in the component</li>
+    <li>where you will pass the flag url , you have to create a function in parent component</li>
+    <li>Created a visitedFlag Function in parent component </li>
+    <li>But child doesnot know what is vistedFlag()</li>
+    <li>so we have to pass it as props within the child </li>
+    <li>child will recieve the VistedFlag() and can set the value</li>
+    <li>passed the url via visitedFlag from child</li>
+    <li>Recieved it in parents visitedFlag</li>
+    <li>Now we have to declare a state to notify react</li>
+    <li>  const [flags, setFlags] = useState([]);</li>
+    <li>Here flag is array , so putting flagUrls in flags</li>
+    <li><div>
         const newFlags = [...flags, flagUrl];
         setFlags(newFlags);
-    }</li>
-    <li>  <div className="card-container">
-                {
-                    countries.map((country) => (
-                        <Country
-                            key={country.ccn3}
-                            visitedFlag={visitedFlag}
-                            addVisitedCountry={addVisitedCountry}
-                            code={country.ccn3}
-                            country={country}
-                        />
-                    ))
-                }
-            </div></li>
-    <li>const [flags, setFlags] = useState([]);</li>
-    <li> <div>
+    </div></li>
+    <li>
+        <div>
+        <div>
                 <h2>visited Flags</h2>
                 <div className="visited-flags">
                     {
@@ -36,5 +33,7 @@
                         })
                     }
                 </div>
-            </div></li>
+            </div>
+        </div>
+    </li>
 </ol>
