@@ -46,3 +46,54 @@ export default function Country({ country, code, addVisitedCountry,visitedFlag }
         </div>
     );
 }
+
+{/* <ol>
+    <li>Create a Button and Put onClick()</li>
+    <li>Wrap it with another function because we have to pass img url</li>
+    <li>write the handleFlagClicked function in the component</li>
+    <li>where you will pass the flag url , you have to create a function in parent component</li>
+    <li>Created a visitedFlag Function in parent component</li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ol> */}
+
+
+
+<ol>
+    <li> <button onClick={()=>handleFlagClicked(flagUrl)}>Add Flag</button></li>
+    <li> const handleFlagClicked = (flagUrl) =>{
+        visitedFlag(flagUrl);
+    }</li>
+    <li> const visitedFlag = (flagUrl) => {
+        const newFlags = [...flags, flagUrl];
+        setFlags(newFlags);
+    }</li>
+    <li>  <div className="card-container">
+                {
+                    countries.map((country) => (
+                        <Country
+                            key={country.ccn3}
+                            visitedFlag={visitedFlag}
+                            addVisitedCountry={addVisitedCountry}
+                            code={country.ccn3}
+                            country={country}
+                        />
+                    ))
+                }
+            </div></li>
+    <li>const [flags, setFlags] = useState([]);</li>
+    <li> <div>
+                <h2>visited Flags</h2>
+                <div className="visited-flags">
+                    {
+                        flags.map((flag,index) => {
+                            return <img key={index} src={flag} alt="" />
+                        })
+                    }
+                </div>
+            </div></li>
+</ol>
