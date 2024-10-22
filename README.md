@@ -25,7 +25,6 @@
     <li>
         <div>
         <div>
-                <h2>visited Flags</h2>
                 <div className="visited-flags">
                     {
                         flags.map((flag,index) => {
