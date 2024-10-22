@@ -22,17 +22,10 @@
         const newFlags = [...flags, flagUrl];
         setFlags(newFlags);
     </div></li>
-    <li>
-        <div>
-        <div>
-                <div className="visited-flags">
-                    {
-                        flags.map((flag,index) => {
-                            return <img key={index} src={flag} alt="" />
-                        })
-                    }
-                </div>
-            </div>
-        </div>
-    </li>
+    flags.map((flag,index) => {
+     return <img key={index} src={flag} alt="" />
+    })
+    
+                        
+                    
 </ol>
